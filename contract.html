@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הסכם למתן שירותי בניית אתר אינטרנט – David Eliyahu Cybersecurity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f2744;
+      --primary-light: #1a3a5c;
+      --accent: #c9a227;
+      --accent-soft: #f5eed6;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(15, 39, 68, 0.08);
+      --radius: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: linear-gradient(135deg, #eef2f7 0%, #f8fafc 50%, #eef2f7 100%);
+      color: var(--text);
+      line-height: 1.75;
+      min-height: 100vh;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .doc-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: var(--white);
+      padding: 2.5rem 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 60%;
+      height: 200%;
+      background: rgba(201, 162, 39, 0.08);
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .brand-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Frank Ruhl Libre', serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.9;
+      letter-spacing: 0.02em;
+    }
+
+    .doc-title {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      font-weight: 700;
+      line-height: 1.3;
+      position: relative;
+    }
+
+    .doc-subtitle {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      opacity: 0.75;
+      font-weight: 300;
+    }
+
+    .accent-line {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 1.25rem;
+      border-radius: 2px;
+    }
+
+    /* Body */
+    .doc-body {
+      padding: 2.5rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .meta-grid { grid-template-columns: 1fr; }
+    }
+
+    .meta-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      background: var(--bg);
+    }
+
+    .meta-box h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-soft);
+    }
+
+    .field {
+      margin-bottom: 0.6rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .field-label {
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      min-width: 80px;
+    }
+
+    .field-value {
+      flex: 1;
+      border-bottom: 1px dashed #cbd5e1;
+      min-height: 1.4em;
+      font-size: 0.95rem;
+    }
+
+    .agreement-date {
+      text-align: center;
+      padding: 1rem;
+      background: var(--accent-soft);
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .agreement-date strong { color: var(--primary); }
+
+    /* Sections */
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-left: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-content {
+      padding-right: 2.75rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .section-content p { margin-bottom: 0.65rem; }
+
+    .section-content ul, .section-content ol {
+      padding-right: 1.5rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .section-content li { margin-bottom: 0.35rem; }
+
+    .highlight-box {
+      background: var(--bg);
+      border-right: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 0.75rem 0;
+      font-size: 0.9rem;
+    }
+
+    /* Signatures */
+    .signatures-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid var(--border);
+    }
+
+    .signatures-section > h2 {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 1.3rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .signatures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .signatures-grid { grid-template-columns: 1fr; }
+    }
+
+    .signature-block {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      background: var(--bg);
+    }
+
+    .signature-block h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .signature-canvas-wrap {
+      position: relative;
+      background: var(--white);
+      border: 2px dashed #cbd5e1;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      touch-action: none;
+    }
+
+    canvas.signature-pad {
+      display: block;
+      width: 100%;
+      height: 120px;
+      cursor: crosshair;
+      border-radius: 6px;
+    }
+
+    .signature-actions {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-clear {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .btn-clear:hover { background: #fecaca; }
+
+    .btn-save {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-save:hover { background: var(--primary-light); }
+
+    .signature-meta .field { margin-bottom: 0.5rem; }
+
+    .signature-meta .field-value {
+      border-bottom-style: solid;
+      border-color: #94a3b8;
+    }
+
+    /* Toolbar */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .toolbar .btn {
+      padding: 0.55rem 1.25rem;
+      font-size: 0.875rem;
+    }
+
+    .btn-print {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .btn-print:hover { filter: brightness(1.05); }
+
+    .btn-download {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Footer */
+    .doc-footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 0.8rem;
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .toolbar, .signature-actions, .btn { display: none !important; }
+      .signature-canvas-wrap { border-style: solid; }
+      .doc-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section { page-break-inside: avoid; }
+      .signatures-section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar no-print">
+    <button class="btn btn-print" onclick="window.print()">🖨️ הדפסה</button>
+    <button class="btn btn-download" onclick="downloadSignedPDF()">📄 שמירת PDF חתום</button>
+  </div>
+
+  <div class="container" id="contract">
+    <header class="doc-header">
+      <div class="brand">
+        <div class="brand-icon">DE</div>
+        <div class="brand-name">David Eliyahu Cybersecurity</div>
+      </div>
+      <h1 class="doc-title">הסכם למתן שירותי בניית אתר אינטרנט</h1>
+      <p class="doc-subtitle">הסכם שירותים מקצועי בין נותן השירות ללקוח</p>
+      <div class="accent-line"></div>
+    </header>
+
+    <div class="doc-body">
+
+      <div class="meta-grid">
+        <div class="meta-box">
+          <h3>פרטי נותן השירות</h3>
+          <div class="field">
+            <span class="field-label">שם העסק:</span>
+            <span class="field-value">David Eliyahu Cybersecurity</span>
+          </div>
+          <div class="field">
+            <span class="field-label">שם מלא:</span>
+            <span class="field-value">דוד אליהו</span>
+          </div>
+          <div class="field">
+            <span class="field-label">ת.ז. / ח.פ.:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+          <div class="field">
+            <span class="field-label">כתובת:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+          <div class="field">
+            <span class="field-label">טלפון:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+          <div class="field">
+            <span class="field-label">דוא"ל:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+        </div>
+
+        <div class="meta-box">
+          <h3>פרטי הלקוח</h3>
+          <div class="field">
+            <span class="field-label">שם העסק:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+          <div class="field">
+            <span class="field-label">שם מלא:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+          <div class="field">
+            <span class="field-label">ת.ז. / ח.פ.:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+          <div class="field">
+            <span class="field-label">כתובת:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+          <div class="field">
+            <span class="field-label">טלפון:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+          <div class="field">
+            <span class="field-label">דוא"ל:</span>
+            <span class="field-value">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="agreement-date">
+        <strong>תאריך ההסכם:</strong>
+        <span id="contract-date">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span style="color: var(--text-muted); font-size: 0.85rem;"> (יום ____ חודש ____ שנת ____)</span>
+      </div>
+
+      <p style="margin-bottom: 2rem; font-size: 0.95rem; text-align: justify;">
+        לפיכך הוצהר, הוסכם והותנה בין הצדדים כדלקמן:
+      </p>
+
+      <!-- Section 1 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">1</span> מטרת ההסכם</h2>
+        <div class="section-content">
+          <p>מטרת הסכם זה היא להסדיר את היחסים המשפטיים והמסחריים בין נותן השירות לבין הלקוח, בקשר עם מתן שירותי תכנון, עיצוב, פיתוח והקמת אתר אינטרנט (להלן: "<strong>הפרויקט</strong>") בהתאם לפרטים המפורטים בנספחים ובהסכם זה.</p>
+          <p>ההסכם מהווה את הבסיס המלא והבלעדי ליחסים בין הצדדים בנוגע לפרויקט, וגובר על כל הצעה, התכתבות, הבנה או הסכמה קודמת, בין בעל פה ובין בכתב.</p>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">2</span> היקף העבודה</h2>
+        <div class="section-content">
+          <p>נותן השירות יבצע עבור הלקוח את השירותים הבאים, בכפוף לתנאי הסכם זה:</p>
+          <ul>
+            <li><strong>עיצוב גрафי ו-UI/UX</strong> – תכנון ממשק משתמש מותאם אישית, כולל עיצוב דפים, צבעוניות, טיפוגרפיה וחוויית משתמש.</li>
+            <li><strong>פיתוח ותכנות</strong> – בניית האתר, הטמעת תוכן, אינטגרציות נדרשות ופונקציונליות בהתאם למפרט.</li>
+            <li><strong>התאמה למובייל (Responsive Design)</strong> – התאמת האתר לתצוגה מיטבית במכשירים ניידים, טאבלטים ומחשבים שולחניים.</li>
+            <li><strong>SEO בסיסי</strong> – אופטימיזציה בסיסית למנועי חיפוש, כולל מטא-תגיות, כותרות, מבנה URL ידידותי ומפת אתר.</li>
+            <li><strong>חיבור דומיין ואחסון</strong> – במידת הצורך, סיוע בחיבור דומיין, הגדרת DNS והקמת אחסון; עלויות דומיין ואחסון חיצוניות אינן כלולות במחיר, אלא אם נקבע אחרת בכתב.</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>הערה:</strong> כל שירות, תכונה או דרישה שאינה מפורטת במפורש בנספח היקף העבודה או בהסכם זה, תיחשב כעבודה נוספת ותחויב בתשלום נפרד, בהתאם לסעיף 5 להלן.
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">3</span> לוחות זמנים ואבני דרך</h2>
+        <div class="section-content">
+          <p>3.1. לוח הזמנים לביצוע הפרויקט ייקבע בהתאם לנספח לוחות זמנים המצורף להסכם זה, ו/או בטבלה שלהלן:</p>
+          <div class="highlight-box">
+            <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.4rem 0; font-weight: 600;">שלב</td>
+                <td style="padding: 0.4rem 0; font-weight: 600;">תיאור</td>
+                <td style="padding: 0.4rem 0; font-weight: 600;">מועד יעד</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.4rem 0;">1</td>
+                <td style="padding: 0.4rem 0;">אפיון וקבלת חומרים</td>
+                <td style="padding: 0.4rem 0; border-bottom: 1px dashed #cbd5e1;">&nbsp;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.4rem 0;">2</td>
+                <td style="padding: 0.4rem 0;">עיצוב ואישור ויז'ואלי</td>
+                <td style="padding: 0.4rem 0; border-bottom: 1px dashed #cbd5e1;">&nbsp;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.4rem 0;">3</td>
+                <td style="padding: 0.4rem 0;">פיתוח ובדיקות</td>
+                <td style="padding: 0.4rem 0; border-bottom: 1px dashed #cbd5e1;">&nbsp;</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.4rem 0;">4</td>
+                <td style="padding: 0.4rem 0;">השקה ומסירה סופית</td>
+                <td style="padding: 0.4rem 0; border-bottom: 1px dashed #cbd5e1;">&nbsp;</td>
+              </tr>
+            </table>
+          </div>
+          <p>3.2. כל עיכוב במסירת חומרים, משוב או אישורים מצד הלקוח, ידחה את לוחות הזמנים בהתאם, ללא אחריות לנותן השירות.</p>
+          <p>3.3. נותן השירות יעדכן את הלקוח בכתב על התקדמות הפרויקט ובאופן סדיר בכל אבן דרך משמעותית.</p>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">4</span> מחיר ותנאי תשלום</h2>
+        <div class="section-content">
+          <p>4.1. <strong>מחיר כולל:</strong> סך התמורה עבור הפרויקט הינו <span style="border-bottom: 1px dashed #cbd5e1; padding: 0 2rem;">&nbsp;</span> ₪ (ש"ח), בתוספת מע"מ כחוק.</p>
+          <p>4.2. <strong>מבנה תשלומים:</strong></p>
+          <ul>
+            <li><strong>מקדמה (30%)</strong> – תשלום עם חתימת ההסכם, לפני תחילת העבודה.</li>
+            <li><strong>תשלום ביניים (40%)</strong> – עם אישור העיצוב והממשק על ידי הלקוח.</li>
+            <li><strong>יתרה (30%)</strong> – עם מסירת האתר הסופית ולפני העברת קבצי המקור.</li>
+          </ul>
+          <p>4.3. התשלום יבוצע באמצעות העברה בנקאית / צ'ק / כרטיס אשראי, לפי פרטי החשבון שימסור נותן השירות.</p>
+          <p>4.4. איחור בתשלום מעבר ל-7 ימים ממועד הפירעון, יזכה את נותן השירות לעצור את העבודה ו/או לחייב ריבית פיגורים בשיעור 1.5% לחודש או ככל שיורה הדין, לפי הנמוך.</p>
+          <p>4.5. נותן השירות רשאי לשנות את מבנה התשלומים בכתב ובהסכמת הלקוח.</p>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">5</span> שינויים ותוספות עבודה</h2>
+        <div class="section-content">
+          <p>5.1. <strong>כלול בהסכם:</strong> עד שני סבבי תיקונים לעיצוב, תיקוני באגים בתקופת הבדיקות, והתאמות קלות לתוכן שסופק על ידי הלקוח.</p>
+          <p>5.2. <strong>בתשלום נוסף:</strong> כל שינוי מהותי בדרישות, הוספת דפים, תכונות, אינטגרציות, שפות, או כל בקשה שחורגת מהיקף העבודה המקורי – יחויב בתעריף שעתי של <span style="border-bottom: 1px dashed #cbd5e1; padding: 0 1.5rem;">&nbsp;</span> ₪ לשעה, או במחיר קבוע שיוסכם בכתב מראש.</p>
+          <p>5.3. כל בקשת שינוי תוגש בכתב; נותן השירות ימסור הצעת מחיר ולוח זמנים לפני תחילת ביצוע.</p>
+          <p>5.4. אין חובה על נותן השירות לבצע שינויים שטרם אושרו בכתב על ידי הלקוח.</p>
+        </div>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">6</span> התחייבויות הלקוח</h2>
+        <div class="section-content">
+          <p>6.1. הלקוח מתחייב למסור לנותן השירות, במועד ובאיכות הנדרשים, את כל החומרים הנדרשים לביצוע הפרויקט, לרבות: תוכן טקסטואלי, תמונות, לוגו, מידע עסקי, גישות לשירותים קיימים וכל חומר אחר.</p>
+          <p>6.2. הלקוח מתחייב לספק משוב ואישורים תוך 5 ימי עסקים ממועד קבלת חומר לבדיקה. אי-מענה ייחשב כאישור.</p>
+          <p>6.3. הלקוח מתחייב כי כל החומרים שימסור הינם בבעלותו או שיש לו רישיון לשימוש בהם, וכי השימוש בהם אינו מפר זכויות צד שלישי.</p>
+          <p>6.4. הלקוח יישא באחריות מלאה לנזקים הנובעים מאיחור, חוסר או אי-דיוק בחומרים שמסר.</p>
+        </div>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">7</span> זכויות יוצרים וקניין רוחני</h2>
+        <div class="section-content">
+          <p>7.1. כל זכויות היוצרים, הקניין הרוחני והקוד המקור של הפרויקט, יישארו בבעלות נותן השירות עד לקבלת התשלום המלא והסופי על ידי הלקוח.</p>
+          <p>7.2. עם קבלת התשלום המלא, נותן השירות יעביר ללקוח בעלות מלאה ובלתי מוגבלת על התוצר הסופי של הפרויקט, למעט רכיבי קוד פתוח (Open Source), ספריות צד שלישי, וכלים מקצועיים שבבעלות נותן השירות.</p>
+          <p>7.3. נותן השירות שומר לעצמו את הזכות להציג את הפרויקט בפורטפolio שלו, אלא אם הלקוח ביקש אחרת בכתב.</p>
+          <p>7.4. במקרה של אי-תשלום, נותן השירות רשאי להשתמש, לשכפל, לשנות או למחוק את התוצר, ללא הגבלה.</p>
+        </div>
+      </div>
+
+      <!-- Section 8 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">8</span> אחריות ותמיכה לאחר מסירה</h2>
+        <div class="section-content">
+          <p>8.1. נותן השירות מתחייב לתקן ללא עלות, תקלות ו/או באגים שנובעים מפיתוח לקוי, למשך 30 יום ממועד מסירת האתר ("<strong>תקופת האחריות</strong>").</p>
+          <p>8.2. תקופת האחריות אינה כוללת: שינויים בדרישות, עדכוני תוכן, תקלות בשרת/אחסון/דומיין, פריצות או נזקים שאינם בשליטת נותן השירות, או שימוש לא נכון על ידי הלקוח.</p>
+          <p>8.3. לאחר תקופת האחריות, ניתן לרכוש חבילת תחזוקה ותמיכה שוטפת, בתנאים שיוסכמו בנפרד.</p>
+        </div>
+      </div>
+
+      <!-- Section 9 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">9</span> סודיות</h2>
+        <div class="section-content">
+          <p>9.1. כל צד מתחייב לשמור בסודיות מוחלטת על כל מידע עסקי, טכני, פיננסי או אישי של הצד השני, שיגיע לידיעתו במסגרת ביצוע הסכם זה.</p>
+          <p>9.2. חובת הסודיות תחול גם לאחר סיום ההסכם, ולמשך 3 שנים לפחות.</p>
+          <p>9.3. חובת הסודיות לא תחול על מידע שהפך לנחלת הכלל, או שנדרש לגלות על פי דין או צו שיפוטי.</p>
+        </div>
+      </div>
+
+      <!-- Section 10 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">10</span> הגבלת אחריות</h2>
+        <div class="section-content">
+          <p>10.1. אחריות נותן השירות מוגבלת לתיקון תקלות בפיתוח, כמפורט בסעיף 8, ואינה כוללת נזקים עקיפים, תוצאתיים, אובדן רווח, אובדן נתונים או נזק לשם טוב.</p>
+          <p>10.2. סך אחריות נותן השירות, בכל מקרה, לא יעלה על סכום התמורה ששולם בפועל על ידי הלקוח בגין הפרויקט.</p>
+          <p>10.3. נותן השירות אינו אחראי לתוכן שמסר הלקוח, לפעילות צד שלישי (אחסון, דומיין, שירותי ענן), או לשימוש בלתי מורשה באתר.</p>
+        </div>
+      </div>
+
+      <!-- Section 11 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">11</span> ביטול ההסכם והשלכותיו</h2>
+        <div class="section-content">
+          <p>11.1. כל צד רשאי לבטל את ההסכם בהודעה בכתב של 14 יום מראש, בכפוף לתנאים שלהלן.</p>
+          <p>11.2. <strong>ביטול על ידי הלקוח:</strong> הלקוח ישלם עבור כל העבודה שבוצעה עד מועד הביטול, לרבות שלבים שהושלמו, ולא יהיה זכאי להחזר על מקדמה ששולמה בגין עבודה שבוצעה.</p>
+          <p>11.3. <strong>ביטול על ידי נותן השירות:</strong> במקרה של אי-תשלום, הפרת הסכם, או מסירת חומרים בלתי חוקיים – נותן השירות רשאי לבטל מיידית, לשמור על כל התשלומים ששולמו, ולהימנע ממסירת תוצרים.</p>
+          <p>11.4. עם הביטול, כל צד ישיב לצד השני חומרים ומידע שקיבל, למעט תשלומים שגובו בדין.</p>
+        </div>
+      </div>
+
+      <!-- Section 12 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">12</span> פתרון מחלוקות</h2>
+        <div class="section-content">
+          <p>12.1. הצדדים יעשו מאמץ ליישב כל מחלוקת ביניהם בדרך של משא ומתן בתום לב.</p>
+          <p>12.2. לא הצליחו הצדדים ליישב את המחלוקת תוך 30 יום, תידון המחלוקת בבית המשפט המוסמך במחוז _____________, והדין החל יהיה הדין הישראלי.</p>
+          <p>12.3. על הסכם זה יחולו דיני מדינת ישראל, לרבות חוק החוזים (חלק כללי), תשל"ג-1973, וכל דין רלוונטי אחר.</p>
+        </div>
+      </div>
+
+      <!-- Section 13 -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-number">13</span> הוראות כלליות</h2>
+        <div class="section-content">
+          <p>13.1. כל שינוי, תיקון או ויתור על הוראה מהוראות הסכם זה, יהיו בתוקף רק אם נעשו בכתב ונחתמו על ידי שני הצדדים.</p>
+          <p>13.2. אי-מימוש זכות על פי הסכם זה לא ייחשב כוויתור עליה.</p>
+          <p>13.3. הסכם זה נחתם בשני עותקים, שכל אחד מהם מהווה מקור, ומסירה אחת לכל צד.</p>
+        </div>
+      </div>
+
+      <!-- Signatures -->
+      <div class="signatures-section">
+        <h2>חתימות הצדדים</h2>
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">
+          ולראיה באו הצדדים על החתום – ניתן לחתום ידנית או באמצעות חתימה דיגיטלית בתיבה שלהלן
+        </p>
+
+        <div class="signatures-grid">
+          <div class="signature-block">
+            <h3>נותן השירות – David Eliyahu Cybersecurity</h3>
+            <div class="signature-canvas-wrap">
+              <canvas class="signature-pad" id="sig-provider" width="380" height="120"></canvas>
+            </div>
+            <div class="signature-actions no-print">
+              <button class="btn btn-clear" onclick="clearSignature('sig-provider')">ניקוי</button>
+            </div>
+            <div class="signature-meta">
+              <div class="field">
+                <span class="field-label">שם:</span>
+                <span class="field-value">דוד אליהו</span>
+              </div>
+              <div class="field">
+                <span class="field-label">תאריך:</span>
+                <span class="field-value" id="sig-date-provider">&nbsp;</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="signature-block">
+            <h3>הלקוח</h3>
+            <div class="signature-canvas-wrap">
+              <canvas class="signature-pad" id="sig-client" width="380" height="120"></canvas>
+            </div>
+            <div class="signature-actions no-print">
+              <button class="btn btn-clear" onclick="clearSignature('sig-client')">ניקוי</button>
+            </div>
+            <div class="signature-meta">
+              <div class="field">
+                <span class="field-label">שם:</span>
+                <span class="field-value">&nbsp;</span>
+              </div>
+              <div class="field">
+                <span class="field-label">תאריך:</span>
+                <span class="field-value" id="sig-date-client">&nbsp;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="doc-footer">
+      David Eliyahu Cybersecurity &nbsp;|&nbsp; הסכם למתן שירותי בניית אתר אינטרנט &nbsp;|&nbsp; מסמך משפטי
+    </footer>
+  </div>
+
+  <script>
+    // Signature pad logic
+    const pads = {};
+
+    function initSignaturePad(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      let drawing = false;
+      let lastX = 0, lastY = 0;
+
+      function resizeCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        const ratio = window.devicePixelRatio || 1;
+        canvas.width = rect.width * ratio;
+        canvas.height = 120 * ratio;
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = '120px';
+        ctx.scale(ratio, ratio);
+        ctx.strokeStyle = '#0f2744';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+      }
+
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches ? e.touches[0] : e;
+        return { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
+      }
+
+      function startDraw(e) {
+        e.preventDefault();
+        drawing = true;
+        const pos = getPos(e);
+        lastX = pos.x; lastY = pos.y;
+      }
+
+      function draw(e) {
+        if (!drawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+        lastX = pos.x; lastY = pos.y;
+      }
+
+      function stopDraw() { drawing = false; }
+
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDraw);
+      canvas.addEventListener('mouseleave', stopDraw);
+      canvas.addEventListener('touchstart', startDraw, { passive: false });
+      canvas.addEventListener('touchmove', draw, { passive: false });
+      canvas.addEventListener('touchend', stopDraw);
+
+      pads[canvasId] = { canvas, ctx, resizeCanvas };
+    }
+
+    function clearSignature(canvasId) {
+      const pad = pads[canvasId];
+      if (!pad) return;
+      const rect = pad.canvas.parentElement.getBoundingClientRect();
+      pad.ctx.clearRect(0, 0, rect.width, 120);
+    }
+
+    function downloadSignedPDF() {
+      window.print();
+    }
+
+    // Set today's date in Hebrew format
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('he-IL', { day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('contract-date').textContent = dateStr;
+    document.getElementById('sig-date-provider').textContent = dateStr;
+    document.getElementById('sig-date-client').textContent = dateStr;
+
+    initSignaturePad('sig-provider');
+    initSignaturePad('sig-client');
+  </script>
+</body>
+</html>
